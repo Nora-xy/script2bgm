@@ -90,131 +90,184 @@ The expected file pattern is:
 
 ## Full Reproduction Steps
 
-1. Prepare MTG-Jamendo Metadata
+### 1. Prepare MTG-Jamendo Metadata
 
 Run:
 
+```bash
 python src/prepare_mtg_metadata.py
 python src/make_subset.py
+````
 
 Expected outputs:
 
+```text
 data/processed/mtg_moodtheme_manifest.csv
 data/processed/mtg_subset.csv
+```
 
-The project uses a 1000-track subset:
+The project uses a 1,000-track subset:
 
-train: 700 tracks
-validation: 150 tracks
-test: 150 tracks
+| Split      | Tracks |
+| ---------- | -----: |
+| Train      |    700 |
+| Validation |    150 |
+| Test       |    150 |
 
-2. Prepare FLAN-T5 v2 Dataset
+---
+
+### 2. Prepare FLAN-T5 v2 Dataset
 
 Run:
 
+```bash
 python src/prepare_flan_t5_v2_structured_data.py
+```
 
 Expected outputs:
 
+```text
 data/processed/scene_to_music_prompt_v2_structured.csv
 data/processed/leakage_report_v2.csv
+```
 
 This step creates screenplay-style inputs and structured music-description targets.
 
 The FLAN-T5 training split contains two generated scene variants per track:
 
-train: 1400 examples
-validation: 300 examples
-test: 300 examples
+| Split      | Examples |
+| ---------- | -------: |
+| Train      |    1,400 |
+| Validation |      300 |
+| Test       |      300 |
 
-3. Fine-tune FLAN-T5-small
+---
+
+### 3. Fine-tune FLAN-T5-small
 
 Run:
 
+```bash
 python src/finetune_flan_t5_v2.py
+```
 
 Expected outputs:
 
+```text
 models/flan_t5_scene_to_music_prompt_v2_structured/
 experiments/flan_t5_scene_to_music_prompt_v2_structured/training_log.csv
 experiments/flan_t5_scene_to_music_prompt_v2_structured/test_loss_metrics.csv
 experiments/flan_t5_scene_to_music_prompt_v2_structured/config.json
+```
 
 If the model directory is not committed to GitHub, this step regenerates it.
 
-4. Generate and Evaluate Music Descriptions
+---
+
+### 4. Generate and Evaluate Music Descriptions
 
 Run:
 
+```bash
 python src/generate_and_eval_flan_t5_v2.py
+```
 
 Expected outputs:
 
+```text
 experiments/flan_t5_scene_to_music_prompt_v2_structured/test_predictions.csv
 experiments/flan_t5_scene_to_music_prompt_v2_structured/generation_metrics.csv
+```
 
-The test_predictions.csv file contains:
+The `test_predictions.csv` file contains:
 
+```text
 input_screenplay
 target_text
 predicted_music_description
 moodtheme_tags
 genre_tags
+```
 
-5. Match Audio Paths
+---
 
-After downloading and unpacking MTG-Jamendo audio-low files, run:
+### 5. Match Audio Paths
 
+After downloading and unpacking MTG-Jamendo `audio-low` files, run:
+
+```bash
 python src/check_audio_paths.py \
   --manifest data/processed/mtg_subset.csv \
   --audio_root ~/datasets/mtg_jamendo/audio_low \
   --output data/processed/mtg_subset_with_audio.csv
+```
 
 Expected result:
 
+```text
 COVERAGE: 100%
+```
 
-This step handles the MTG-Jamendo audio-low filename convention where metadata paths such as:
+This step handles the MTG-Jamendo `audio-low` filename convention where metadata paths such as:
 
+```text
 15/102191.mp3
+```
 
 correspond to unpacked files such as:
 
+```text
 15/102191.low.mp3
+```
 
-6. Extract CLAP Audio Embeddings
+---
+
+### 6. Extract CLAP Audio Embeddings
 
 Run:
 
+```bash
 python src/extract_clap_audio_subset.py \
   --manifest data/processed/mtg_subset_with_audio.csv \
   --output_dir data/embeddings/clap_audio_subset \
   --batch_size 1
+```
 
-Expected output:
+Expected outputs:
 
+```text
 data/embeddings/clap_audio_subset/clap_audio_embeds.pt
 data/embeddings/clap_audio_subset/metadata.csv
+```
 
 Expected sanity check:
 
+```text
 embedding shape: 1000 x 512
 metadata rows: 1000
 zero rows: 0
 embedding norms: approximately 1.0
+```
 
-7. Run Final CLAP Retrieval Comparison
+---
+
+### 7. Run Final CLAP Retrieval Comparison
 
 Run:
 
+```bash
 python src/clap_query_ensemble.py \
   --pred_path experiments/flan_t5_scene_to_music_prompt_v2_structured/test_predictions.csv \
   --out_dir experiments/clap_query_ensemble_v2
+```
 
 Expected outputs:
 
+```text
 experiments/clap_query_ensemble_v2/metrics.csv
 experiments/clap_query_ensemble_v2/README.md
 experiments/clap_query_ensemble_v2/examples_direct_screenplay.csv
 experiments/clap_query_ensemble_v2/examples_finetuned_generated_description.csv
 experiments/clap_query_ensemble_v2/examples_oracle_target_description.csv
+```
+
