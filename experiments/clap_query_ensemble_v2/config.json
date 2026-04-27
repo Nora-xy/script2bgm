@@ -1,0 +1,7 @@
+{
+  "experiment_name": "clap_query_ensemble_v1",
+  "description": "Tests CLAP retrieval using direct screenplay queries, fine-tuned FLAN-T5 generated music descriptions, oracle target music descriptions, and score-level ensembles between direct screenplay and generated descriptions.",
+  "clap_model": "laion/clap-htsat-fused",
+  "audio_pool": "1000 MTG-Jamendo audio-low CLAP embeddings",
+  "fusion": "score = alpha * direct_screenplay_score + (1 - alpha) * generated_description_score"
+}

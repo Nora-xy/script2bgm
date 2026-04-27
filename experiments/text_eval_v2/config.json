@@ -1,0 +1,25 @@
+{
+  "experiment_name": "text_eval_v2",
+  "dataset": "mtg_subset.csv",
+  "num_examples": 1000,
+  "query_field": "scene_text",
+  "target_field": "music_description",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "similarity": "cosine_similarity",
+  "evaluation": [
+    "ExactRecall@1",
+    "ExactRecall@5",
+    "ExactRecall@10",
+    "MRR",
+    "MoodHit@1",
+    "MoodHit@5",
+    "MoodHit@10",
+    "GenreHit@1",
+    "GenreHit@5",
+    "GenreHit@10",
+    "BestMoodJaccard@5",
+    "BestGenreJaccard@5"
+  ],
+  "description": "Second text-only retrieval evaluation. Adds tag-level metrics because exact track retrieval is too strict for weakly supervised BGM matching.",
+  "limitations": "Still text-to-text rather than text-to-audio. No model training yet."
+}

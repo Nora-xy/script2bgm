@@ -1,0 +1,10 @@
+{
+  "experiment_name": "clap_text_retrieval_v1",
+  "dataset": "mtg_subset.csv",
+  "num_examples": 1000,
+  "model": "laion/clap-htsat-fused",
+  "query_field": "scene_text",
+  "target_field": "music_description",
+  "similarity": "cosine_similarity",
+  "description": "Text-only retrieval baseline using the CLAP text encoder for both scene descriptions and music descriptions. This compares CLAP text embeddings against the earlier MiniLM baseline before adding audio embeddings."
+}

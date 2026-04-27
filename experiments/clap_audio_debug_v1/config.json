@@ -1,0 +1,11 @@
+{
+  "experiment_name": "clap_audio_debug_v1",
+  "dataset": "debug_audio_subset.csv",
+  "num_examples": 20,
+  "model": "laion/clap-htsat-fused",
+  "query_field": "scene_text",
+  "target": "MTG-Jamendo audio-low mp3",
+  "similarity": "cosine_similarity",
+  "description": "First successful CLAP text-to-audio retrieval debug run. Uses generated scene descriptions as text queries and CLAP audio embeddings from matched MTG-Jamendo audio files.",
+  "limitations": "Small 20-example debug subset only. Main full-subset run should use generated detailed music descriptions and/or 1000-example subset."
+}

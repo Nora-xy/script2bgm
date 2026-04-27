@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Large raw data and audio
+data/raw/
+data/audio*/
+datasets/
+*.tar
+*.mp3
+*.low.mp3
+
+# Model checkpoints and tensor outputs
+models/
+checkpoints/
+*.safetensors
+*.bin
+*.pt
+
+# Large embedding outputs
+data/embeddings/
+
+# System
+.DS_Store
+
+# Keep lightweight evidence files
+!experiments/**/*.csv
+!experiments/**/*.json
+!experiments/**/*.md
+!experiments/**/*.png
+!data/processed/**/*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Submission archives / local copies
+final_outputs/
+final_outputs_script2bgm.tar.gz
+*.tar.gz
+
+# Virtual environment
+.venv/
+
+# Model checkpoints and large model files
+models/
+checkpoints/
+*.safetensors
+*.pt
+*.bin
+
+# Large embeddings / audio / raw data
+data/embeddings/
+data/raw/
+data/audio*/
+*.mp3
+*.low.mp3
+*.tar
+*.tar.gz
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local final output archives
+final_outputs/
+final_outputs_script2bgm.tar.gz

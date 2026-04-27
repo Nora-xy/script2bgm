@@ -1,0 +1,4 @@
+split,rows,avg_leak_count,rows_with_leak
+test,300,0.01,3
+train,1400,0.002142857142857143,3
+validation,300,0.006666666666666667,2

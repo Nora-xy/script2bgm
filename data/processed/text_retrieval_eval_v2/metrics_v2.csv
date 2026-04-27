@@ -1,0 +1,2 @@
+num_examples,model,ExactRecall@1,ExactRecall@5,ExactRecall@10,MRR,MoodHit@1,MoodHit@5,MoodHit@10,GenreHit@1,GenreHit@5,GenreHit@10,BestMoodJaccard@5,BestGenreJaccard@5
+1000,sentence-transformers/all-MiniLM-L6-v2,0.06,0.139,0.211,0.11599595173653611,0.301,0.44,0.546,0.5909090909090909,0.7313131313131314,0.8474747474747475,0.27195119047619043,0.41854377104377105

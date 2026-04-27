@@ -1,0 +1,5 @@
+experiment,method,Recall@1,Recall@5,Recall@10,MRR,MoodHit@5,GenreHit@5,notes
+clap_query_ensemble_v2,direct_screenplay,0.0000,0.0100,0.0167,0.0112,0.3433,0.6678,direct screenplay query into CLAP
+clap_query_ensemble_v2,finetuned_generated_description,0.0067,0.0167,0.0233,0.0182,0.4100,0.6779,FLAN-T5 v2 generated structured music description
+clap_query_ensemble_v2,oracle_target_description,0.0067,0.0133,0.0267,0.0209,0.4733,0.8322,oracle music description upper bound
+clap_query_ensemble_v2,score_fusion_alpha_0.75_direct,0.0033,0.0233,0.0333,0.0175,0.4667,0.7852,best hybrid score fusion result

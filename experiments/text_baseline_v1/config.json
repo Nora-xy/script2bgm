@@ -1,0 +1,18 @@
+{
+  "experiment_name": "text_baseline_v1",
+  "dataset": "mtg_subset.csv",
+  "num_examples": 1000,
+  "query_field": "scene_text",
+  "target_field": "music_description",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "similarity": "cosine_similarity",
+  "evaluation": [
+    "Recall@1",
+    "Recall@5",
+    "Recall@10",
+    "MRR",
+    "Avg_MoodTheme_TagOverlap@5"
+  ],
+  "description": "First text-only retrieval baseline. It embeds generated film scene descriptions and MTG-Jamendo music descriptions, then retrieves by cosine similarity.",
+  "limitations": "This is not audio-based yet and does not train any model parameters. Exact-track recall is strict because many tracks share similar mood/theme tags."
+}

@@ -1,0 +1,2 @@
+experiment,num_examples,model,query,target,ExactRecall@1,ExactRecall@5,ExactRecall@10,MRR,MoodHit@5,GenreHit@5
+clap_text_retrieval_v1,1000,laion/clap-htsat-fused,scene_text,music_description,0.009999999776482582,0.03500000014901161,0.06800000369548798,0.032815380598195075,0.496,0.7292929292929293

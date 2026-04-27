@@ -1,0 +1,9 @@
+{
+  "experiment_name": "clap_text_embedding_debug",
+  "model": "laion/clap-htsat-fused",
+  "input": "scene_text",
+  "num_examples": 20,
+  "output": "CLAP text embeddings",
+  "description": "Debug run confirming that pretrained CLAP can encode generated film scene descriptions into text embeddings.",
+  "notes": "This is text-only. Audio embeddings will be added after audio storage/download is resolved."
+}

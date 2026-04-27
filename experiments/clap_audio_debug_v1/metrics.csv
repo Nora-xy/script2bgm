@@ -1,0 +1,2 @@
+experiment,num_examples,model,query,target,ExactRecall@1,ExactRecall@5
+clap_audio_debug_v1,20,laion/clap-htsat-fused,scene_text,audio,0.05000000074505806,0.3499999940395355

@@ -1,0 +1,2 @@
+test_loss,test_runtime,test_samples_per_second,test_steps_per_second,epoch
+0.2427988201379776,4.4385,67.59,16.897,5.0

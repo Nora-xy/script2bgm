@@ -1,0 +1,2 @@
+num_examples,model,Recall@1,Recall@5,Recall@10,MRR,Avg_MoodTheme_TagOverlap@5
+1000,sentence-transformers/all-MiniLM-L6-v2,0.06,0.139,0.211,0.11599595173653611,0.11861238095238094

@@ -1,0 +1,13 @@
+{
+  "experiment_name": "flan_t5_scene_to_music_prompt_leakage_reduced_v1",
+  "model": "google/flan-t5-small",
+  "saved_model_dir": "models/flan_t5_scene_to_music_prompt_leakage_reduced",
+  "dataset": "scene_to_music_prompt_leakage_reduced.csv",
+  "task": "script_like_scene_to_detailed_music_description",
+  "input": "leakage-reduced screenplay-style scene text",
+  "target": "detailed music description generated from MTG-Jamendo mood/theme and genre tags",
+  "train_examples": 1400,
+  "validation_examples": 300,
+  "test_examples": 300,
+  "notes": "Training completed successfully. Original Trainer evaluation crashed during token decoding, so test generation and metrics were recovered with manual model.generate evaluation."
+}

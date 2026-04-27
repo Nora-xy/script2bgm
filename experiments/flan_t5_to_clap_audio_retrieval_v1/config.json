@@ -1,0 +1,8 @@
+{
+  "experiment_name": "flan_t5_to_clap_audio_retrieval_v1",
+  "description": "Compares three CLAP text-to-audio retrieval query types: direct screenplay input, oracle target music description, and fine-tuned FLAN-T5 generated music description.",
+  "audio_pool": "1000 MTG-Jamendo audio-low clips from mtg_subset_with_audio.csv",
+  "clap_model": "laion/clap-htsat-fused",
+  "generation_model": "fine-tuned google/flan-t5-small",
+  "metrics": ["ExactRecall@1", "ExactRecall@5", "ExactRecall@10", "MRR", "MoodHit@5", "GenreHit@5"]
+}

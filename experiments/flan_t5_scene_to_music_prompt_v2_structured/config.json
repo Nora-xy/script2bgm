@@ -1,0 +1,11 @@
+{
+  "experiment_name": "flan_t5_scene_to_music_prompt_v2_structured",
+  "model": "google/flan-t5-small",
+  "dataset": "scene_to_music_prompt_v2_structured.csv",
+  "task": "screenplay_to_structured_music_description",
+  "main_change_from_v1": "Structured output format plus stronger non-music cinematic cues for genre/style inference.",
+  "epochs": 5,
+  "learning_rate": 7e-5,
+  "batch_size": 4,
+  "gradient_accumulation_steps": 2
+}

@@ -1,0 +1,2 @@
+num_test_examples,avg_mood_recovery,avg_genre_recovery,mood_any_hit_rate,genre_any_hit_rate
+300,0.14794444444444443,0.09211409395973154,0.23666666666666666,0.2181208053691275
